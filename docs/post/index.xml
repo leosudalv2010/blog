@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Posts on Leo&#39;s Blog</title>
+    <link>https://leosudalv2010.github.io/blog/post/</link>
+    <description>Recent content in Posts on Leo&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh</language>
+    <copyright>&amp;copy; 2019. All rights reserved.</copyright>
+    <lastBuildDate>Tue, 20 Aug 2019 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://leosudalv2010.github.io/blog/post/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>js逆向之XHR断点</title>
+      <link>https://leosudalv2010.github.io/blog/post/2_xhr_breakpoint/</link>
+      <pubDate>Tue, 20 Aug 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://leosudalv2010.github.io/blog/post/2_xhr_breakpoint/</guid>
+      <description>sss</description>
+    </item>
+    
+    <item>
+      <title>js逆向之XHR断点2</title>
+      <link>https://leosudalv2010.github.io/blog/post/3_xhr_breakpoint_2/</link>
+      <pubDate>Sun, 18 Aug 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://leosudalv2010.github.io/blog/post/3_xhr_breakpoint_2/</guid>
+      <description>sss</description>
+    </item>
+    
+    <item>
+      <title>js逆向之代码溯源</title>
+      <link>https://leosudalv2010.github.io/blog/post/1_js_reverse/</link>
+      <pubDate>Fri, 16 Aug 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://leosudalv2010.github.io/blog/post/1_js_reverse/</guid>
+      <description> 目标网站：https://www.qimingpian.cn/finosda/project/pinvestment 爬取目标：列表页的企业信息
+确定目标数据位置 首先查看源码，发现我们需要的信息并不在源码中，那么一定是通过AJAX加载的，分析XHR请求，发现返回的数据是加密的：
+解析解密方法 接下来就需要从js中搜索解密的方法，在开发者工具的Sources选项卡中搜索XHR请求中的加密数据变量名encrypt_data，发现只存在于一个js文件中，一共出现了6次。通过分析找到最可能是解密方法的位置，打上断点。
+刷新页面，不断按F11（Step into next function call）观察函数调用的顺序，注意每次进入下一个调用栈都要打上断点作为标记，便于后面能快速定位厘清思路。首先，找到了解密方法的主入口：
+进一步按F11，找到上图中定义s方法和a.a.decode方法的位置。
+a.a.decode方法，注意该方法中的变量f和c的值是在其他位置定义的，需要通过在控制台调用console.log()获取 s方法 将上述代码复制到WebStorm中执行，成功得到了解密后的数据：
+python中调用js代码 最后通过python的execjs库执行js代码，将数据解密的逻辑在python中实现。需要注意的是js代码中解密得到的是js对象（调用了JSON.parse方法），在python中运行会发生错误。解决的办法是去除JSON.parse方法，生成Buffer实例，通过base64编码，然后在python中解码。
+function o(t) { return new Buffer(s(&amp;quot;5e5062e82f15fe4ca9d24bc5&amp;quot;, adecode(t), 0, 0, &amp;quot;012345677890123&amp;quot;, 1)).toString(&amp;quot;base64&amp;quot;) }  </description>
+    </item>
+    
+  </channel>
+</rss>
