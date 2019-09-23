@@ -63,4 +63,5 @@ anchor = "smart"
 
   # SNS microblogging
   weibo = "*"
+  github = "*"
 

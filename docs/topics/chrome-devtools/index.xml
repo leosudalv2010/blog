@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Leo&#39;s Blog</title>
-    <link>https://leosudalv2010.github.io/blog/</link>
-    <description>Recent content on Leo&#39;s Blog</description>
+    <title>Chrome DevTools on Leo&#39;s Blog</title>
+    <link>https://leosudalv2010.github.io/blog/topics/chrome-devtools/</link>
+    <description>Recent content in Chrome DevTools on Leo&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh</language>
     <copyright>&amp;copy; 2019. All rights reserved.</copyright>
     <lastBuildDate>Mon, 26 Aug 2019 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="https://leosudalv2010.github.io/blog/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://leosudalv2010.github.io/blog/topics/chrome-devtools/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
@@ -37,33 +37,6 @@
       
       <guid>https://leosudalv2010.github.io/blog/post/4_chrome_devtools_debug/</guid>
       <description>Chrome DevTools代码单步与多步调试方法的总结。</description>
-    </item>
-    
-    <item>
-      <title>js逆向之XHR断点2</title>
-      <link>https://leosudalv2010.github.io/blog/post/3_spider_xhr_breakpoint_2/</link>
-      <pubDate>Tue, 20 Aug 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://leosudalv2010.github.io/blog/post/3_spider_xhr_breakpoint_2/</guid>
-      <description>XHR断点调试的另一个例子，同时介绍了请求需要带cookies时如何应对。</description>
-    </item>
-    
-    <item>
-      <title>js逆向之XHR断点</title>
-      <link>https://leosudalv2010.github.io/blog/post/2_spider_xhr_breakpoint/</link>
-      <pubDate>Sun, 18 Aug 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://leosudalv2010.github.io/blog/post/2_spider_xhr_breakpoint/</guid>
-      <description>介绍了解析XHR请求加密参数生成的基本方法——XHR断点分析法。</description>
-    </item>
-    
-    <item>
-      <title>js逆向之代码溯源</title>
-      <link>https://leosudalv2010.github.io/blog/post/1_spider_js_reverse/</link>
-      <pubDate>Fri, 16 Aug 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://leosudalv2010.github.io/blog/post/1_spider_js_reverse/</guid>
-      <description>通过一个简单的例子介绍了js逆向解析加密参数的基本思路和方法。</description>
     </item>
     
   </channel>

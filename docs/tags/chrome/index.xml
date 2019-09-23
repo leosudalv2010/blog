@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Chrome on Leo&#39;s Blog</title>
+    <link>https://leosudalv2010.github.io/blog/tags/chrome/</link>
+    <description>Recent content in Chrome on Leo&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh</language>
+    <copyright>&amp;copy; 2019. All rights reserved.</copyright>
+    <lastBuildDate>Sat, 24 Aug 2019 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://leosudalv2010.github.io/blog/tags/chrome/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Chrome DevTools断点类型总结</title>
+      <link>https://leosudalv2010.github.io/blog/post/5_chrome_devtools_breakpoints/</link>
+      <pubDate>Sat, 24 Aug 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://leosudalv2010.github.io/blog/post/5_chrome_devtools_breakpoints/</guid>
+      <description>Chrome DevTools不同类型断点的使用场景与使用方法。</description>
+    </item>
+    
+    <item>
+      <title>Chrome DevTools代码调试总结</title>
+      <link>https://leosudalv2010.github.io/blog/post/4_chrome_devtools_debug/</link>
+      <pubDate>Thu, 22 Aug 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://leosudalv2010.github.io/blog/post/4_chrome_devtools_debug/</guid>
+      <description>Chrome DevTools代码单步与多步调试方法的总结。</description>
+    </item>
+    
+  </channel>
+</rss>

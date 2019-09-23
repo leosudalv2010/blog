@@ -7,7 +7,7 @@
   <meta name="description" content="">
   <meta name="generator" content="Hugo 0.57.0" />
 
-  <title>Topics &middot; Leo&#39;s Blog</title>
+  <title>Chrome DevTools断点类型总结 &middot; Leo&#39;s Blog</title>
 
   
   
@@ -39,9 +39,6 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 
  
-  
-  <link rel="alternate" type="application/rss+xml" title="Leo&#39;s Blog"
-    href='https://leosudalv2010.github.io/blog/topics/index.xml' />
   
 
   
@@ -108,11 +105,6 @@
   <div class="pure-menu social">
   <ul class="pure-menu-list">
 
-    
-    <li class="pure-menu-item">
-      <a class="pure-menu-link" href='https://leosudalv2010.github.io/blog/topics/index.xml'><i
-          class="fa fa-rss fa-fw"></i>RSS</a>
-    </li>
     
 
     
@@ -216,34 +208,143 @@
 
 
 <div class="header">
-  <h1>Topics</h1>
+  <h1>Chrome DevTools断点类型总结</h1>
+  <h2></h2>
 </div>
 <div class="content">
-  <ul>
+
+  <div class="post-meta">
+
+  <div>
+    <i class="fa fa-calendar fa-fw"></i>
+    <time>24 Aug 2019</time>
+  </div>
+
+  
+
   
   
-    <li>
-      <h3>
-        <a href="chrome-devtools">chrome-devtools</a>
-        <span>&#40;3&#41;</span>
-      </h3>
-    </li>
   
-    <li>
-      <h3>
-        <a href="js%E9%80%86%E5%90%91">js逆向</a>
-        <span>&#40;3&#41;</span>
-      </h3>
-    </li>
+  <div>
+    <i class="fa fa-folder fa-fw"></i>
+    
+      <a class="post-taxonomy-topic" href="https://leosudalv2010.github.io/blog/topics/chrome-devtools">Chrome DevTools</a>
+    
+  </div>
   
-    <li>
-      <h3>
-        <a href="python%E7%88%AC%E8%99%AB">python爬虫</a>
-        <span>&#40;3&#41;</span>
-      </h3>
-    </li>
   
-  </ul>
+
+  
+  
+  
+  <div>
+    <i class="fa fa-tags fa-fw"></i>
+    
+      <a class="post-taxonomy-tag" href="https://leosudalv2010.github.io/blog/tags/chrome">Chrome</a>&nbsp;&#47;
+    
+      <a class="post-taxonomy-tag" href="https://leosudalv2010.github.io/blog/tags/%E6%96%AD%E7%82%B9">断点</a>
+    
+  </div>
+  
+  
+
+</div>
+
+  
+
+<p>示例Demo：<a href="https://googlechrome.github.io/devtools-samples/debug-js/get-started">https://googlechrome.github.io/devtools-samples/debug-js/get-started</a> <br>
+reference：<a href="https://developers.google.com/web/tools/chrome-devtools/javascript/breakpoints">https://developers.google.com/web/tools/chrome-devtools/javascript/breakpoints</a></p>
+
+<h2 id="line-of-code-breakpoints">Line-of-code breakpoints</h2>
+
+<p>确切地知道在哪里暂停代码时，使用单行断点。左键点击代码行左侧序号位置即可设置单行断点，右键点击序号位置可选择设置条件断点。</p>
+
+<p><img src="https://leosudalv2010.github.io/blog/post/pics/5/5_1.png" alt="" /></p>
+
+<p><br></p>
+
+<h2 id="dom-change-breakpoints">DOM change breakpoints</h2>
+
+<p>使用DOM断点将会使代码停在改变该DOM节点或子节点的代码处。</p>
+
+<p><img src="https://leosudalv2010.github.io/blog/post/pics/5/5_2.png" alt="" /></p>
+
+<p><b>Subtree modifications:</b> Triggered when a child of the currently-selected node is removed or added, or the contents of a child are changed. Not triggered on child node attribute changes, or on any changes to the currently-selected node.</p>
+
+<p><b>Attributes modifications:</b> Triggered when an attribute is added or removed on the currently-selected node, or when an attribute value changes.</p>
+
+<p><b>Node removal:</b> Triggered when the currently-selected node is removed.</p>
+
+<p><br></p>
+
+<h2 id="xhr-fetch-breakpoints">XHR/Fetch breakpoints</h2>
+
+<p>当XHR请求的url地址包含指定字符串时，将会在XHR请求调用send()的位置断点。</p>
+
+<p><img src="https://leosudalv2010.github.io/blog/post/pics/5/5_3.png" alt="" /></p>
+
+<p><br></p>
+
+<h2 id="event-listener-breakpoints">Event listener breakpoints</h2>
+
+<p>设置事件断点后，代码停在该事件触发后的事件监听代码位置。</p>
+
+<p><img src="https://leosudalv2010.github.io/blog/post/pics/5/5_4.png" alt="" /></p>
+
+
+  
+<div class="prev-next-post pure-g">
+  <div class="pure-u-1-24" style="text-align: left;">
+    
+    <a href="https://leosudalv2010.github.io/blog/post/4_chrome_devtools_debug/"><i class="fa fa-chevron-left"></i></a>
+    
+  </div>
+  <div class="pure-u-10-24">
+    
+    <nav class="prev">
+      <a href="https://leosudalv2010.github.io/blog/post/4_chrome_devtools_debug/">Chrome DevTools代码调试总结</a>
+    </nav>
+    
+  </div>
+  <div class="pure-u-2-24">
+    &nbsp;
+  </div>
+  <div class="pure-u-10-24">
+    
+    <nav class="next">
+      <a href="https://leosudalv2010.github.io/blog/post/6_chrome_devtools_inspect/">Chrome DevTools跟踪变量值</a>
+    </nav>
+    
+  </div>
+  <div class="pure-u-1-24" style="text-align: right;">
+    
+    <a href="https://leosudalv2010.github.io/blog/post/6_chrome_devtools_inspect/"><i class="fa fa-chevron-right"></i></a>
+    
+  </div>
+</div>
+
+
+
+  
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+
+(function() {
+    
+    
+    if (window.location.hostname == "localhost")
+        return;
+
+    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+    var disqus_shortname = 'Your Disqus shortname';
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com/" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
 </div>
 
 </div>
@@ -271,3 +372,4 @@
 
 </body>
 </html>
+

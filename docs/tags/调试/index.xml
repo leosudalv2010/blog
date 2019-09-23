@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>调试 on Leo&#39;s Blog</title>
+    <link>https://leosudalv2010.github.io/blog/tags/%E8%B0%83%E8%AF%95/</link>
+    <description>Recent content in 调试 on Leo&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh</language>
+    <copyright>&amp;copy; 2019. All rights reserved.</copyright>
+    <lastBuildDate>Thu, 22 Aug 2019 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://leosudalv2010.github.io/blog/tags/%E8%B0%83%E8%AF%95/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Chrome DevTools代码调试总结</title>
+      <link>https://leosudalv2010.github.io/blog/post/4_chrome_devtools_debug/</link>
+      <pubDate>Thu, 22 Aug 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://leosudalv2010.github.io/blog/post/4_chrome_devtools_debug/</guid>
+      <description>Chrome DevTools代码单步与多步调试方法的总结。</description>
+    </item>
+    
+  </channel>
+</rss>
