@@ -7,7 +7,7 @@
   <meta name="description" content="">
   <meta name="generator" content="Hugo 0.57.0" />
 
-  <title>Chrome DevTools跟踪变量值 &middot; Leo&#39;s Blog</title>
+  <title>猫眼电影字体加密解析 &middot; Leo&#39;s Blog</title>
 
   
   
@@ -208,7 +208,7 @@
 
 
 <div class="header">
-  <h1>Chrome DevTools跟踪变量值</h1>
+  <h1>猫眼电影字体加密解析</h1>
   <h2></h2>
 </div>
 <div class="content">
@@ -217,7 +217,7 @@
 
   <div>
     <i class="fa fa-calendar fa-fw"></i>
-    <time>26 Aug 2019</time>
+    <time>30 Oct 2019</time>
   </div>
 
   
@@ -228,7 +228,7 @@
   <div>
     <i class="fa fa-folder fa-fw"></i>
     
-      <a class="post-taxonomy-topic" href="https://leosudalv2010.github.io/blog/topics/chrome-devtools">Chrome DevTools</a>
+      <a class="post-taxonomy-topic" href="https://leosudalv2010.github.io/blog/topics/python%E7%88%AC%E8%99%AB">python爬虫</a>
     
   </div>
   
@@ -240,7 +240,7 @@
   <div>
     <i class="fa fa-tags fa-fw"></i>
     
-      <a class="post-taxonomy-tag" href="https://leosudalv2010.github.io/blog/tags/%E5%8F%98%E9%87%8F">变量</a>
+      <a class="post-taxonomy-tag" href="https://leosudalv2010.github.io/blog/tags/%E5%AD%97%E4%BD%93%E5%8A%A0%E5%AF%86">字体加密</a>
     
   </div>
   
@@ -250,43 +250,129 @@
 
   
 
-<p>示例Demo：<a href="https://googlechrome.github.io/devtools-samples/debug-js/get-started">https://googlechrome.github.io/devtools-samples/debug-js/get-started</a> <br>
-reference：<a href="https://developers.google.com/web/tools/chrome-devtools/javascript/">https://developers.google.com/web/tools/chrome-devtools/javascript/</a></p>
+<p>目标网站：<a href="https://maoyan.com/board/1">https://maoyan.com/board/1</a> <br>
+百度字体工具: <a href="http://fontstore.baidu.com/static/editor/index.html">http://fontstore.baidu.com/static/editor/index.html</a> <br>
+爬取目标：电影票房数据</p>
 
-<h2 id="the-scope-pane">The Scope Pane</h2>
+<h2 id="确定目标数据位置">确定目标数据位置</h2>
 
-<p>当代码停留在断点处时，Scope窗格会显示函数内的变量值以及全局变量值，双击变量可以修改变量值。</p>
+<p>通过检查网页元素发现猫眼的票房数据是方框乱码：</p>
 
-<p><img src="https://leosudalv2010.github.io/blog/post/pics/6/6_1.png" alt="" /></p>
+<p><img src="https://leosudalv2010.github.io/blog/post/pics/7/7_1.png" alt="" />
+<br></p>
 
-<p><br></p>
+<p>而查看网页源码时发现票房数据是一串类似编码的字符串:
+<img src="https://leosudalv2010.github.io/blog/post/pics/7/7_2.png" alt="" />
+<br></p>
 
-<h2 id="watch-expressions">Watch Expressions</h2>
+<p>这是因为这个span标签添加了字体样式“stonefont”，源码中的编码其实是字形的编码。通过点击这个元素可以在右侧看到字体文件，点击进入字体文件所在的位置可以下载woff格式的字体文件。</p>
 
-<p>Watch窗格用来监测变脸值的变化，除此之外，还可以在Wathc窗格添加javascript表达式，例如下图中的typeof sum。</p>
+<p><img src="https://leosudalv2010.github.io/blog/post/pics/7/7_3.png" alt="" />
+<br>
+<img src="https://leosudalv2010.github.io/blog/post/pics/7/7_4.png" alt="" />
+<br></p>
 
-<p><img src="https://leosudalv2010.github.io/blog/post/pics/6/6_2.png" alt="" /></p>
+<h2 id="字体文件解析">字体文件解析</h2>
 
-<p><br></p>
+<p>借助百度字体工具可以打开字体文件，发现不同的字形对应不同的编码：</p>
 
-<h2 id="the-console">The Console</h2>
+<p><img src="https://leosudalv2010.github.io/blog/post/pics/7/7_5.png" alt="" />
+<br></p>
 
-<p>在Console窗格中直接输入javascript表达式进行测试。</p>
+<p>至此就能得到编码和字符的对应关系:</p>
 
-<p><img src="https://leosudalv2010.github.io/blog/post/pics/6/6_3.png" alt="" /></p>
+<pre><code># 字形编码与数字字符对应关系
+relation = {
+    'uniEE4F': '0',
+    'uniEE2C': '1',
+    'uniEB37': '2',
+    'uniF2EC': '3',
+    'uniE37E': '4',
+    'uniF28E': '5',
+    'uniF683': '6',
+    'uniE7A6': '7',
+    'uniF422': '8',
+    'uniE56D': '9',
+}
+</code></pre>
+
+<p>然而通过刷新网页发现字体文件是动态变化的，也就是说编码和字符的对应关系是动态变化的，下图是第二个字体文件的内容：</p>
+
+<p><img src="https://leosudalv2010.github.io/blog/post/pics/7/7_6.png" alt="" />
+<br></p>
+
+<p>虽然编码不固定，但是通过观察可以发现字形是基本不变的，可以通过比对找出两个字体文件相同的字形，那么相同字形对应的编码就应该代表同一个字符。接下来分析字体文件，使用fontTools库将woff字体文件转化为XML文件：</p>
+
+<pre><code>from fontTools.ttLib import TTFont
+
+font1 = TTFont('font/1.woff')
+font1.saveXML('font/1.xml')
+</code></pre>
+
+<p>XML文件结构如下图，其中重点是GlyphOrder部分和glyf部分：GlyphOrder是字形编码列表，glyf则是各个字形对象的内容（用轮廓坐标描述）。</p>
+
+<p><img src="https://leosudalv2010.github.io/blog/post/pics/7/7_7.png" alt="" />
+<br>
+<img src="https://leosudalv2010.github.io/blog/post/pics/7/7_8.png" alt="" />
+<br>
+<img src="https://leosudalv2010.github.io/blog/post/pics/7/7_9.png" alt="" />
+<br></p>
+
+<p>这里取的字形编码uniE7A6在第一个字体文件中表示字符7，在第二个字体文件中表示7的编码是uniE1E8,它对应的字形对象是：</p>
+
+<p><img src="https://leosudalv2010.github.io/blog/post/pics/7/7_10.png" alt="" />
+<br></p>
+
+<p>我们发现两个字形对象坐标并不完全一致，但是坐标的差值是在一定误差范围内的，通过比对这两组坐标，可以确定它们是否是代表同一个字符：</p>
+
+<pre><code>def compare_coordinate(a, b):
+    for i in range(10):
+        if abs(a[i][0] - b[i][0]) &gt; 80 or abs(a[i][1] - b[i][1]) &gt; 80:
+            return False
+    return True
+</code></pre>
+
+<h2 id="动态解析字形编码与字符的关系">动态解析字形编码与字符的关系</h2>
+
+<p>我们通过解析第一个字体文件得到了字形编码和字符的关系，接下来每次访问猫眼票房页面都能得到一个动态的字体文件，通过对比两个字体文件的字形对象可以得到字形编码的对应关系，进一步得到动态字体文件字形编码和字符的对应关系：</p>
+
+<pre><code># 字体1的各字形编码
+font1 = TTFont('font/1.woff')
+name1_list = font1.getGlyphOrder()[2:]
+
+# 字体2的各字形编码
+font2 = TTFont('font/2.woff')
+name2_list = font2.getGlyphOrder()[2:]
+
+relation_new = dict()
+for name1 in name1_list:
+    obj1 = font1['glyf'][name1]  # 字体1的字形对象
+    coordinate1 = obj1.coordinates  # 字形对象对应的坐标组
+    for name2 in name2_list:
+        obj2 = font2['glyf'][name2]  # 字体2的字形对象
+        coordinate2 = obj2.coordinates  # 字形对象对应的坐标组
+        if compare_coordinate(coordinate1, coordinate2):
+            relation_new[name2] = relation[name1]
+
+</code></pre>
+
+<p>结果：
+<br>
+<img src="https://leosudalv2010.github.io/blog/post/pics/7/7_11.png" alt="" />
+<br></p>
 
 
   
 <div class="prev-next-post pure-g">
   <div class="pure-u-1-24" style="text-align: left;">
     
-    <a href="https://leosudalv2010.github.io/blog/post/5_chrome_devtools_breakpoints/"><i class="fa fa-chevron-left"></i></a>
+    <a href="https://leosudalv2010.github.io/blog/post/6_chrome_devtools_inspect/"><i class="fa fa-chevron-left"></i></a>
     
   </div>
   <div class="pure-u-10-24">
     
     <nav class="prev">
-      <a href="https://leosudalv2010.github.io/blog/post/5_chrome_devtools_breakpoints/">Chrome DevTools断点类型总结</a>
+      <a href="https://leosudalv2010.github.io/blog/post/6_chrome_devtools_inspect/">Chrome DevTools跟踪变量值</a>
     </nav>
     
   </div>
@@ -295,14 +381,8 @@ reference：<a href="https://developers.google.com/web/tools/chrome-devtools/jav
   </div>
   <div class="pure-u-10-24">
     
-    <nav class="next">
-      <a href="https://leosudalv2010.github.io/blog/post/7_spider_font_%E7%8C%AB%E7%9C%BC/">猫眼电影字体加密解析</a>
-    </nav>
-    
   </div>
   <div class="pure-u-1-24" style="text-align: right;">
-    
-    <a href="https://leosudalv2010.github.io/blog/post/7_spider_font_%E7%8C%AB%E7%9C%BC/"><i class="fa fa-chevron-right"></i></a>
     
   </div>
 </div>

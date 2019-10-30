@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>字体加密 on Leo&#39;s Blog</title>
+    <link>https://leosudalv2010.github.io/blog/tags/%E5%AD%97%E4%BD%93%E5%8A%A0%E5%AF%86/</link>
+    <description>Recent content in 字体加密 on Leo&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh</language>
+    <copyright>&amp;copy; 2019. All rights reserved.</copyright>
+    <lastBuildDate>Wed, 30 Oct 2019 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://leosudalv2010.github.io/blog/tags/%E5%AD%97%E4%BD%93%E5%8A%A0%E5%AF%86/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>猫眼电影字体加密解析</title>
+      <link>https://leosudalv2010.github.io/blog/post/7_spider_font_%E7%8C%AB%E7%9C%BC/</link>
+      <pubDate>Wed, 30 Oct 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://leosudalv2010.github.io/blog/post/7_spider_font_%E7%8C%AB%E7%9C%BC/</guid>
+      <description>猫眼电影通过动态字体文件加密网页内容，通过解析加密过程进行加密破解。</description>
+    </item>
+    
+  </channel>
+</rss>
